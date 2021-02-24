@@ -16,15 +16,18 @@ func main() {
 }
 
 func isMatch(s string, p string) (aws bool) {
-	slen, plen := len(s), len(p)
-	if slen == 0 || plen == 0 {
-		aws = false
+	i, j := len(s), len(p)
+	f := make([][]bool, i)
+	for a := range f {
+		f[a] = make([]bool, j)
 	}
-	point := 0
-	for i := 0; i < plen; i++ {
-		if p[i:i+1] == "." {
 
-		}
+	return
+}
+
+func match(s string, p string, f [][]bool) (answer bool) {
+	if p[len(p)-1:] == "*" {
+
 	}
 	return
 }
