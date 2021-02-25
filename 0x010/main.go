@@ -15,19 +15,33 @@ func main() {
 	}
 }
 
-func isMatch(s string, p string) (aws bool) {
+func isMatch(s string, p string) bool {
 	i, j := len(s), len(p)
-	f := make([][]bool, i)
+	matches := func(m, n int) bool {
+		if m == 0 {
+			return false
+		}
+		if p[n-1] == '.' {
+			return true
+		}
+		return s[m-1] == p[n-1]
+	}
+	f := make([][]bool, i+1)
 	for a := range f {
-		f[a] = make([]bool, j)
+		f[a] = make([]bool, j+1)
 	}
-
-	return
-}
-
-func match(s string, p string, f [][]bool) (answer bool) {
-	if p[len(p)-1:] == "*" {
-
+	f[0][0] = true
+	for m := 0; m <= i; m++ {
+		for n := 1; n <= j; n++ {
+			if p[n-1] == '*' {
+				f[m][n] = f[m][n] || f[m][n-2]
+				if matches(m, n-1) {
+					f[m][n] = f[m][n] || f[m-1][n]
+				}
+			} else if matches(m, n) {
+				f[m][n] = f[m][n] || f[m-1][n-1]
+			}
+		}
 	}
-	return
+	return f[i][j]
 }
