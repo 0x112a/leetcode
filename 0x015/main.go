@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"sort"
+	"strconv"
 	"strings"
 )
 
@@ -12,6 +13,12 @@ func main() {
 	input := bufio.NewScanner(os.Stdin)
 	for input.Scan() {
 		temp := strings.Split(input.Text(), ",")
+		var t []int
+		for _, i := range temp {
+			temp, _ := strconv.Atoi(i)
+			t = append(t, temp)
+		}
+		fmt.Println(threeSum(t))
 
 	}
 }
