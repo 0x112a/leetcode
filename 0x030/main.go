@@ -10,7 +10,6 @@ func main() {
 }
 
 func findSubstring(s string, words []string) []int {
-	l := len(s)
 	t := len(words)
 	var answer []int
 	var stepSize int
