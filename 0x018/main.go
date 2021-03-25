@@ -28,7 +28,6 @@ func fourSum(nums []int, target int) [][]int {
 		return [][]int{}
 	}
 	sort.Ints(nums)
-	fmt.Println(nums)
 	ans := [][]int{}
 	for i := 0; i < l-3; i++ {
 		if i > 0 && nums[i] == nums[i-1] {
