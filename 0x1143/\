@@ -1,0 +1,22 @@
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println("vim-go")
+}
+
+func longestCommonSubsequence(text1 string, text2 string) (ans int) {
+	l1, l2 := len(text1), len(text2)
+	p1, p2 := 0, 0
+	for p1 < l1 && p2 < l2 {
+		if string(text1[p1]) == string(text2[p2]) {
+			ans++
+			p1++
+			p2++
+			continue
+		} 
+		if longestCommonSubsequence(text1[p1:],text2[p2+1:) > lollongestCommonSubsequence(text1[p1+1:],ttext2[p2:])
+	}
+	return
+}
