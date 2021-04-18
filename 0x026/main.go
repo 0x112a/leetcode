@@ -25,3 +25,21 @@ func removeDuplicates(nums []int) (answer int) {
 	return answer
 
 }
+func rremoveDuplicates(nums []int) int {
+	l := len(nums)
+	if l == 0 || l == 1 {
+		return l
+	}
+	fast := 1
+	temp := nums[0]
+	for i := 1; i < l; i++ {
+		if nums[i] == temp {
+			continue
+		} else {
+			temp = nums[i]
+			nums[fast] = temp
+			fast++
+		}
+	}
+	return fast
+}
