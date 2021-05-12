@@ -1,8 +1,8 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	"go/src/bufio"
 	"os"
 	"strings"
 )
