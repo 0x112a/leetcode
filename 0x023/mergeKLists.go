@@ -13,7 +13,7 @@ func mergeKLists(list []*ListNode) *ListNode {
 	}
 
 	var result = new(ListNode)
-	p := result.Next
+	p := result
 
 	var check func(l []*ListNode) bool
 
@@ -40,9 +40,11 @@ func mergeKLists(list []*ListNode) *ListNode {
 			}
 		}
 		list[index] = min.Next
-
-		p = min
+		if p.Next == nil {
+			p.Next = new(ListNode)
+		}
 		p = p.Next
+		p.Val = min.Val
 
 	}
 
