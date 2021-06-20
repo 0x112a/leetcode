@@ -13,19 +13,38 @@ func swapPairs(head *ListNode) *ListNode {
 	}
 
 	var result *ListNode
+	//头结点总是指向第二的结点
 	result = head.Next
 	preP, P := head, head.Next
+	// 记录前驱
+	var temp *ListNode
 
-	for preP != nil && P.Next != nil {
+	for P != nil {
 
-		preP.Next = P.Next
+		//交换指针
+		preP.Next, P.Next = P.Next, preP
 
-		P.Next = preP
+		//链接前驱
+		if temp == nil {
 
-		preP = preP.Next
+		} else {
+			temp.Next = P
+		}
 
-		P = preP.Next.Next
+		//保存前驱节点指针
+		temp = preP
 
+		if preP.Next == nil {
+			break
+		}
+		//移动双指针
+		preP, P = preP.Next, preP.Next.Next
+
+	}
+
+	if result.Next == nil {
+		head.Next = nil
+		result.Next = head
 	}
 
 	return result
