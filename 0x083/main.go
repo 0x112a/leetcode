@@ -1,10 +1,10 @@
-package main
+package _x083
 
-import "fmt"
-
-func main() {
-	fmt.Println("vim-go")
+type ListNode struct {
+	Val int
+	Next *ListNode
 }
+
 func deleteDuplicates(head *ListNode) *ListNode {
 	p := head
 	for p != nil {
