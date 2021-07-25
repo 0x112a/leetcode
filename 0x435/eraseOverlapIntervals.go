@@ -11,10 +11,10 @@ func eraseOverlapInervals(intervals [][]int) int {
 	}
 
 	sort.Slice(intervals, func(i, j int) bool {
-		if intervals[i][0] > intervals[j][0]{
-			return false
-		}
-		return true
+		//if intervals[i][0] > intervals[j][0]{
+		//	return false
+		//}
+		return intervals[i][0]<intervals[j][0]
 	})
 
 	dp := make([]int,n)
@@ -23,7 +23,7 @@ func eraseOverlapInervals(intervals [][]int) int {
 	}
 	for i := 1; i< n;i++ {
 		for j := 0;j<i;j++{
-			if intervals[i][j] <= intervals[i][0]{
+			if intervals[j][1] <= intervals[i][0]{
 				dp[i]=max(dp[i],dp[j]+1)
 			}
 		}
