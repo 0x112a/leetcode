@@ -2,29 +2,29 @@ package _x001
 
 import "sort"
 
-func twoSum(nums []int, target int) []int{
+func twoSum(nums []int, target int) []int {
 	sort.Ints(nums)
 	n := len(nums)
-	small,big := 0,n-1
+	small, big := 0, n-1
 
-	for nums[small]+nums[big] != target{
-	//for small < big{
+	for nums[small]+nums[big] != target {
+		//for small < big{
 		if nums[small]+nums[big] < target {
 			small++
-		}else {
+		} else {
 			big--
 		}
 	}
-	return []int{small,big}
+	return []int{small, big}
 }
 
-func TowSum(nums []int,target int) []int {
+func TowSum(nums []int, target int) []int {
 	hashTable := map[int]int{}
-	for i,v := range nums{
-		if p,ok := hashTable[target-v]; ok{
-			return []int{i,p}
+	for i, v := range nums {
+		if p, ok := hashTable[target-v]; ok {
+			return []int{i, p}
 		}
-		hashTable[v]=i
+		hashTable[v] = i
 	}
 	return nil
 }
